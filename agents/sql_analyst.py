@@ -240,20 +240,20 @@ if __name__ == "__main__":
     }
 
     # Execute the Graph
-sql_analyst_response = sql_analyst.invoke(input_schema)
-print(sql_analyst_response['message'])
+    sql_analyst_response = sql_analyst.invoke(input_schema)
+    print(sql_analyst_response['message'])
 
-print("********************************")
+    print("********************************")
 
-print(sql_analyst_response['generated_sql_query'])  # Print the generated SQL query
+    print(sql_analyst_response['generated_sql_query'])  # Print the generated SQL query
 
-print("********************************")
+    print("********************************")
 
-print(sql_analyst_response['sql_query_execution_result'])  # Print the result of executing the SQL query
+    print(sql_analyst_response['sql_query_execution_result'])  # Print the result of executing the SQL query
 
-print("********************************")
+    print("********************************")
 
-print(sql_analyst_response['prompt_query_context']) 
+    print(sql_analyst_response['prompt_query_context'])
 
 
 

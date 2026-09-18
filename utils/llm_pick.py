@@ -6,27 +6,24 @@ load_dotenv()
 
 
 def pick_llm(level: str):
+    model_name = "gemini-3.6-flash"
 
     if level.lower() == "low":
-        llm = ChatGoogleGenerativeAI(
-            model="gemini-3.5-flash-lite",
-            google_api_key=os.getenv("GEMINI_API_KEY")
-        )
-
+        model_name = "gemini-3.6-flash"
     elif level.lower() == "medium":
-        llm = ChatGoogleGenerativeAI(
-            model="gemini-3.5-flash",
-            google_api_key=os.getenv("GEMINI_API_KEY")
-        )
-
+        model_name = "gemini-3.6-flash"
     elif level.lower() == "high":
-        llm = ChatGoogleGenerativeAI(
-            model="gemini-3.5-flash",
-            google_api_key=os.getenv("GEMINI_API_KEY")
-        )
-
+        model_name = "gemini-3.6-flash"
     else:
         raise ValueError(f"Unsupported level: {level}")
+
+    llm = ChatGoogleGenerativeAI(
+        model=model_name,
+        google_api_key=os.getenv("GEMINI_API_KEY"),
+        temperature=0,
+        max_retries=3,
+        timeout=60,
+    )
 
     return llm
 
